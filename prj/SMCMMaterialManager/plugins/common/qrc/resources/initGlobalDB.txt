@@ -1,0 +1,90 @@
+﻿/// Файл команд создания локальной базы данных материалов SQLITE
+/// знак окончания команды sql, строка пропускается полностью
+--комментарий до конца строки
+
+PRAGMA foreign_keys = ON;
+///
+CREATE TABLE symmetries (name text PRIMARY KEY, description text);
+///
+CREATE TABLE materials  (id   text PRIMARY KEY,symmetries_name text REFERENCES symmetries(name) ON DELETE CASCADE ON UPDATE CASCADE, description text);
+///
+CREATE TABLE models
+(
+    name text PRIMARY KEY,
+    description text
+);
+///
+CREATE TABLE properties 
+(
+    name text PRIMARY KEY, 
+    unit text, 
+    description text
+);
+///
+CREATE TABLE childRoles 
+(
+    id int PRIMARY KEY, 
+    name text, 
+    description text
+);
+///
+CREATE TABLE materialChildren
+(
+    parent_materials_name text REFERENCES materials (id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    child_materials_name text REFERENCES materials (id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    childRoles_id int REFERENCES childRoles (id), 
+    PRIMARY KEY(parent_materials_name, child_materials_name )
+);
+///
+CREATE TABLE symmetryComposition
+(
+    symmetry_name text REFERENCES symmetries(name) ON DELETE CASCADE ON UPDATE CASCADE, 
+    properties_name text  REFERENCES properties(name), 
+    PRIMARY KEY(symmetry_name, properties_name)
+);
+///
+CREATE TABLE modelComposition
+(
+    models_name text REFERENCES models (name) ON DELETE CASCADE ON UPDATE CASCADE, 
+    properties_name text REFERENCES properties(name), 
+    PRIMARY KEY(models_name, properties_name)
+);
+///
+CREATE TABLE propertiesSet
+(
+    materials_name text REFERENCES materials (id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    models_name text REFERENCES models (name) ON DELETE CASCADE ON UPDATE CASCADE, 
+    PRIMARY KEY(materials_name,models_name)
+);
+///
+CREATE TABLE propertyValueScalar
+(
+    materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    properties_name text, 
+    value float NOT NULL, 
+    PRIMARY KEY(materials_name, properties_name)
+);
+///
+CREATE TABLE classification_tree
+(
+    child varchar NOT NULL PRIMARY KEY,
+    parent varchar REFERENCES classification_tree (child) ON DELETE CASCADE
+);
+///
+INSERT INTO classification_tree(child) values ('Классификации');
+///
+CREATE TABLE schemes
+(
+    scheme varchar NOT NULL PRIMARY KEY,
+    description varchar
+);
+///
+CREATE TABLE branch_for_material
+(
+    scheme varchar,
+    branch varchar,
+    id_material varchar,
+    FOREIGN KEY (scheme) REFERENCES schemes (scheme) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_material) REFERENCES materials (id) ON DELETE CASCADE
+);
+///

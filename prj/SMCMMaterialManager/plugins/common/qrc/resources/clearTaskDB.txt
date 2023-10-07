@@ -1,0 +1,31 @@
+--- Файл команд очистки БД свойств материалов для SQLITE
+--- знак окончания команды sql, строка пропускается полностью
+/// \brief комментарий до конца строки
+
+---
+DELETE FROM propertyValueScalar;
+---
+DELETE FROM propertiesSet;
+---
+DELETE FROM modelFunctorGroup;
+---
+DELETE FROM functorsGroupComposition;
+---
+DELETE FROM modelComposition;
+---
+DELETE FROM functorComposition;
+---
+DELETE FROM symmetryComposition;
+---
+DELETE FROM functorGroups;
+---
+DELETE FROM properties;
+---
+DELETE FROM functors;
+---
+DELETE FROM models;
+---
+DELETE FROM symmetries;
+---
+DELETE FROM materials ;
+---

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/CloseDockWindow.png</file>
+        <file>Icons/MaximizeDockWindow.png</file>
+        <file>Icons/SMCMChartLogo.png</file>
+    </qresource>
+</RCC>

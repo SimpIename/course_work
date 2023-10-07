@@ -1,0 +1,150 @@
+/* QMainWindow */
+
+
+QMainWindow {
+	background: rgb(239, 239, 242); 
+}
+
+
+/* StatusBar */
+
+
+StatusBar[ready = true] {
+    color: white;
+    background: rgb(0, 122, 204); 
+} 
+
+StatusBar[ready = false] {
+    color: white;
+    background: rgb(202, 81, 0); 
+}
+
+
+/* QHeaderView */
+
+
+QHeaderView#TaskTableViewHorizontalHeader {
+    color: white;
+    background-color: rgb(35, 35, 35);
+}
+
+QHeaderView#TaskTableViewVerticalHeader {
+    color: white;
+    background-color: rgb(35, 35, 35);
+}
+
+
+/* TaskTableView */
+
+
+TaskTableView {
+    color: white;
+    background-color: rgb(35, 35, 35);
+    selection-background-color: rgb(0, 122, 204);
+}
+
+TaskTableView::item:!focus {
+    color: white;
+    background-color: rgb(35, 35, 35);
+}
+
+TaskTableView QTableCornerButton::section {
+    background: rgb(35, 35, 35);
+}
+
+
+/* QMenuBar */
+
+
+QMenuBar {
+	border-style: none;
+}
+
+
+/* QToolBar */
+
+
+QToolBar {
+	border-style: none;
+}
+
+
+/* QTabBar */
+
+
+QTabBar::close-button {
+    image: url(":/images/img/CloseTab_24_24.png");
+}
+
+QTabBar::close-button:hover {
+    image: url(":/images/img/CloseTabHovered_24_24.png")
+}
+
+QTabBar::tab {
+    border-style: none;
+    min-width: 8ex;
+    padding: 3px;
+}
+
+QTabBar::tab:hover {
+   border-style: none;
+   background: "#BBBBBB";
+}
+
+QTabBar::tab:selected {
+    border-top: 3px solid rgb(0, 122, 204)
+}
+
+
+/* QDockWidget */
+
+
+QDockWidget {
+    titlebar-close-icon: url(":/images/img/CloseDockWindow_24_24.png");
+    titlebar-normal-icon: url(":/images/img/MaximizeDockWindow_24_24.png");
+    color: white;
+    text-align: center left;
+}
+
+
+QDockWidget::title {
+    text-align: center left;
+    background: rgb(0, 122, 204);
+    height: 20px;
+}
+
+
+QDockWidget::close-button {
+    subcontrol-origin: margin;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 24px;
+}
+
+
+QDockWidget::float-button {
+    subcontrol-origin: margin;
+    position: absolute;
+    right: 26px;
+    top: 1px;
+    bottom: 1px;
+    width: 24px;
+}
+
+
+QDockWidget::close-button:hover,
+QDockWidget::float-button:hover {
+    border-style: none;
+    background: "#0082DB";
+}
+
+
+/* GraphDocView */
+
+
+GraphDocView {
+    background-color: "#606060";
+}
+

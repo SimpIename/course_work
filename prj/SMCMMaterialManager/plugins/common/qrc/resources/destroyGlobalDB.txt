@@ -1,0 +1,16 @@
+DROP TABLE branch_for_material;
+DROP TABLE schemes;
+DROP TABLE classification_tree;
+DROP TABLE propertyValueScalar;
+DROP TABLE propertiesSet;
+DROP table modelFunctorGroup;
+DROP table functorsGroupComposition;
+DROP table modelComposition;
+DROP table functorComposition;
+DROP table symmetryComposition;
+DROP table functorGroups;
+DROP table properties;
+DROP table functors;
+DROP table models;
+DROP table symmetries;
+DROP TABLE materials ;

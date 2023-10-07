@@ -1,0 +1,110 @@
+/* QMainWindow */
+
+QMainWindow {
+    background: rgb(239, 239, 242); 
+}
+
+QMainWindow::separator {
+    border-right: 1px solid rgb(204, 206, 219);
+    border-left: 1px solid rgb(204, 206, 219);
+    width: 6px;
+    height: 6px;
+}
+
+
+/* QMenuBar */
+
+QMenuBar {
+    border-style: none;
+}
+
+
+/* QToolBar */
+
+QToolBar {
+    border-style: none;
+    spacing: 0px;
+}
+
+
+/* StatusBar */
+
+
+StatusBar[ready = true] {
+    color: white;
+    background: rgb(0, 122, 204);
+}
+
+StatusBar[ready = false] {
+    color: white;
+    background: rgb(202, 81, 0);
+}
+
+
+/* QTreeView */
+
+QTreeView {
+    show-decoration-selected: 1;
+}
+
+QTreeView::item {
+    height: 17px;
+}
+
+/*
+QTreeView::item:!selected:hover {
+    background: rgb(217, 237, 255);
+}
+
+QTreeView::branch:!selected:hover {
+    background: rgb(217, 237, 255);
+}
+
+QTreeView::item:selected:hover {
+    color: white;
+    background: rgb(46, 138, 230);
+}
+
+QTreeView::branch:selected:hover {
+    background: rgb(46, 138, 230);
+}
+*/
+
+/* QDockWidget */
+
+QDockWidget {
+    titlebar-close-icon: url(":/Icons/CloseDockWindow.png");
+    titlebar-normal-icon: url(":/Icons/MaximizeDockWindow.png");
+    color: white;
+}
+
+QDockWidget::title {
+    text-align: center left;
+    background: rgb(0, 122, 204);
+    height: 20px;
+    padding-right: 24px
+}
+
+QDockWidget::close-button {
+    subcontrol-origin: margin;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 24px;
+}
+
+QDockWidget::float-button {
+    subcontrol-origin: border;
+    position: absolute;
+    top: 0px;
+    right: 24px;
+    bottom: 0px;
+    width: 24px;
+}
+
+QDockWidget::close-button:hover,
+QDockWidget::float-button:hover {
+    border-style: none;
+    background: rgb(65, 156, 218);
+}

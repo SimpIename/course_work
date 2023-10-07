@@ -1,0 +1,141 @@
+﻿--- Файл команд создания локальной базы данных материалов SQLITE
+--- знак окончания команды sql, строка пропускается полностью
+/// \brief комментарий до конца строки
+
+---
+PRAGMA foreign_keys = ON;
+---
+CREATE TABLE symmetries 
+(
+    name text PRIMARY KEY, 
+    description text
+);
+---
+CREATE TABLE materials  
+(
+    id text PRIMARY KEY,
+    symmetries_name text REFERENCES symmetries(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    description text
+);
+---
+CREATE TABLE models
+(
+    name text PRIMARY KEY,
+    description text
+);
+---
+CREATE TABLE properties 
+(
+    name text PRIMARY KEY, 
+    unit text, 
+    description text
+);
+---
+CREATE TABLE symmetryComposition
+(
+    symmetry_name text REFERENCES symmetries(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY(symmetry_name, properties_name)
+);
+---
+CREATE TABLE modelComposition
+(
+    models_name text REFERENCES models (name) ON DELETE CASCADE  ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY(models_name, properties_name)
+);
+---
+CREATE TABLE propertiesSet
+(
+    materials_name text REFERENCES materials (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    models_name text REFERENCES models (name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY(materials_name,models_name)
+);
+---
+CREATE TABLE propertyValueScalar
+(
+    materials_name text NOT NULL REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    minValue float NOT NULL,
+    maxValue float,
+    steps int DEFAULT 1,
+    PRIMARY KEY(materials_name, properties_name),
+    CHECK (((steps > 1) AND (maxValue IS NOT NULL)) OR (steps = 1))
+);
+---
+CREATE TABLE materialChildren
+(
+    child_materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    parent_materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    childRoles_id int NOT NULL,
+    PRIMARY KEY (child_materials_name, parent_materials_name, childRoles_id),
+    UNIQUE (parent_materials_name, childRoles_id)
+);
+---
+CREATE TABLE propertiesDirections
+(
+    materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY(materials_name, properties_name)
+);
+---
+CREATE TABLE directionParameters
+(
+    materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    orderIndex int NOT NULL, 
+    arg_childRole_id int, 
+    argName text NOT NULL DEFAULT 'неизвестно',
+    steps int NOT NULL,
+    degree int NOT NULL,
+    minValue float NOT NULL,
+    maxValue float NOT NULL,
+    PRIMARY KEY(materials_name, properties_name, orderIndex),
+    FOREIGN KEY (materials_name, arg_childRole_id) REFERENCES materialChildren(parent_materials_name, childRoles_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (materials_name, properties_name) REFERENCES propertiesDirections(materials_name, properties_name) ON DELETE CASCADE
+);
+---
+CREATE TABLE nodes
+(
+    materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    orderIndex int NOT NULL, 
+    value float NOT NULL,
+    PRIMARY KEY(materials_name, properties_name, orderIndex),
+    FOREIGN KEY (materials_name, properties_name) REFERENCES propertiesDirections(materials_name, properties_name) ON DELETE CASCADE
+);
+---
+CREATE TABLE coefficients
+(
+    materials_name text REFERENCES materials(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    properties_name text REFERENCES properties(name) ON DELETE CASCADE ON UPDATE CASCADE,
+    orderIndex int NOT NULL, 
+    value float NOT NULL,
+    weight float DEFAULT 1.0,
+    PRIMARY KEY(materials_name, properties_name, orderIndex),
+    FOREIGN KEY (materials_name, properties_name) REFERENCES propertiesDirections(materials_name, properties_name) ON DELETE CASCADE
+);
+---
+CREATE TABLE classification_tree
+(
+    child varchar NOT NULL PRIMARY KEY,
+    parent varchar REFERENCES classification_tree (child) ON DELETE CASCADE
+);
+---
+INSERT INTO classification_tree(child) values ('Классификации');
+---
+CREATE TABLE schemes
+(
+    scheme varchar NOT NULL PRIMARY KEY,
+    description varchar
+);
+---
+CREATE TABLE branch_for_material
+(
+    scheme varchar,
+    branch varchar REFERENCES classification_tree (child) ON DELETE CASCADE ON UPDATE CASCADE,
+    id_material varchar,
+    FOREIGN KEY (scheme) REFERENCES schemes (scheme) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (id_material) REFERENCES materials (id) ON DELETE CASCADE
+);
+---

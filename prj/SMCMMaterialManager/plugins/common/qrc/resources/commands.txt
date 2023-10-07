@@ -1,0 +1,2 @@
+insert into  propertyValueScalar (materials_name, properties_name, minValue, maxValue, steps) Values (4,1,0,10000.00001234,10);
+insert into  propertyValueScalar (materials_name, properties_name, minValue) Values (4,1.1,1234.56789);

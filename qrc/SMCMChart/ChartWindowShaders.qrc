@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Shaders/line.frag</file>
+        <file>Shaders/line.geom</file>
+        <file>Shaders/line.vert</file>
+        <file>Shaders/point.frag</file>
+        <file>Shaders/point.vert</file>
+        <file>Shaders/grid.frag</file>
+        <file>Shaders/grid.vert</file>
+        <file>Shaders/grid_log_X.frag</file>
+        <file>Shaders/grid_log_Y.frag</file>
+        <file>Shaders/grid_log_XY.frag</file>
+    </qresource>
+</RCC>
