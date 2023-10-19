@@ -2094,6 +2094,35 @@ compiler_moc_header_clean:
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qgenericmatrix.h \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/QVector \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/qvector.h \
+		../../common/src/QXlsx/header/xlsxdocument.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QIODevice \
+		../../common/src/QXlsx/header/xlsxglobal.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QByteArray \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QSharedPointer \
+		../../common/src/QXlsx/header/xlsxformat.h \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QColor \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
+		../../common/src/QXlsx/header/xlsxworksheet.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QPointF \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QUrl \
+		../../common/src/QXlsx/header/xlsxabstractsheet.h \
+		../../common/src/QXlsx/header/xlsxabstractooxmlfile.h \
+		../../common/src/QXlsx/header/xlsxcell.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QTime \
+		../../common/src/QXlsx/header/xlsxcellrange.h \
+		../../common/src/QXlsx/header/xlsxcellreference.h \
+		../../common/src/QXlsx/header/xlsxcelllocation.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QMetaType \
+		../../common/src/QXlsx/header/xlsxworkbook.h \
 		../../bin/Plasticity/debug/moc/Plasticity/moc_predefs.h \
 		C:/Qt/6.2.4/mingw_64/bin/moc.exe
 	C:\Qt\6.2.4\mingw_64\bin\moc.exe $(DEFINES) --include C:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/bin/Plasticity/debug/moc/Plasticity/moc_predefs.h -IC:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/plugins/Plasticity -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src -IC:/Qt/Scripts/punegov/src -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src -IC:/Qt/Scripts/punegov/src -IC:/Qt/Scripts/punegov/incl -IC:/Qt/Scripts/punegov/incl/Client -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx/header -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx/header/win32-gcc -IC:/Qt/6.2.4/mingw_64/include -IC:/Qt/6.2.4/mingw_64/include/QtOpenGL -IC:/Qt/6.2.4/mingw_64/include/QtWidgets -IC:/Qt/6.2.4/mingw_64/include/QtGui/6.2.4 -IC:/Qt/6.2.4/mingw_64/include/QtGui/6.2.4/QtGui -IC:/Qt/6.2.4/mingw_64/include/QtGui -IC:/Qt/6.2.4/mingw_64/include/QtCore/6.2.4 -IC:/Qt/6.2.4/mingw_64/include/QtCore/6.2.4/QtCore -IC:/Qt/6.2.4/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\common\src\PluginBaseElementsWidget\PluginBaseElementsWidget.h -o ..\..\bin\Plasticity\debug\moc\Plasticity\moc_PluginBaseElementsWidget.cpp
@@ -2423,6 +2452,35 @@ compiler_moc_header_clean:
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qmatrix4x4.h \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qquaternion.h \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qgenericmatrix.h \
+		../../common/src/QXlsx/header/xlsxdocument.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QIODevice \
+		../../common/src/QXlsx/header/xlsxglobal.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QByteArray \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QSharedPointer \
+		../../common/src/QXlsx/header/xlsxformat.h \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QColor \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
+		../../common/src/QXlsx/header/xlsxworksheet.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QPointF \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QUrl \
+		../../common/src/QXlsx/header/xlsxabstractsheet.h \
+		../../common/src/QXlsx/header/xlsxabstractooxmlfile.h \
+		../../common/src/QXlsx/header/xlsxcell.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QTime \
+		../../common/src/QXlsx/header/xlsxcellrange.h \
+		../../common/src/QXlsx/header/xlsxcellreference.h \
+		../../common/src/QXlsx/header/xlsxcelllocation.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QMetaType \
+		../../common/src/QXlsx/header/xlsxworkbook.h \
 		../../bin/Plasticity/debug/moc/Plasticity/moc_predefs.h \
 		C:/Qt/6.2.4/mingw_64/bin/moc.exe
 	C:\Qt\6.2.4\mingw_64\bin\moc.exe $(DEFINES) --include C:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/bin/Plasticity/debug/moc/Plasticity/moc_predefs.h -IC:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/plugins/Plasticity -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src -IC:/Qt/Scripts/punegov/src -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src -IC:/Qt/Scripts/punegov/src -IC:/Qt/Scripts/punegov/incl -IC:/Qt/Scripts/punegov/incl/Client -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx/header -IC:/Qt/Scripts/punegov/prj/SMCMMaterialManager/plugins/common/src/QXlsx/header/win32-gcc -IC:/Qt/6.2.4/mingw_64/include -IC:/Qt/6.2.4/mingw_64/include/QtOpenGL -IC:/Qt/6.2.4/mingw_64/include/QtWidgets -IC:/Qt/6.2.4/mingw_64/include/QtGui/6.2.4 -IC:/Qt/6.2.4/mingw_64/include/QtGui/6.2.4/QtGui -IC:/Qt/6.2.4/mingw_64/include/QtGui -IC:/Qt/6.2.4/mingw_64/include/QtCore/6.2.4 -IC:/Qt/6.2.4/mingw_64/include/QtCore/6.2.4/QtCore -IC:/Qt/6.2.4/mingw_64/include/QtCore -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include Dialog.h -o ..\..\bin\Plasticity\debug\moc\Plasticity\moc_Dialog.cpp
@@ -3112,7 +3170,36 @@ ui_Dialog.h: Dialog.ui \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qquaternion.h \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qgenericmatrix.h \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/QVector \
-		C:/Qt/6.2.4/mingw_64/include/QtCore/qvector.h
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qvector.h \
+		../../common/src/QXlsx/header/xlsxdocument.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QIODevice \
+		../../common/src/QXlsx/header/xlsxglobal.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QByteArray \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QSharedPointer \
+		../../common/src/QXlsx/header/xlsxformat.h \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QColor \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
+		../../common/src/QXlsx/header/xlsxworksheet.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QPointF \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QUrl \
+		../../common/src/QXlsx/header/xlsxabstractsheet.h \
+		../../common/src/QXlsx/header/xlsxabstractooxmlfile.h \
+		../../common/src/QXlsx/header/xlsxcell.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QTime \
+		../../common/src/QXlsx/header/xlsxcellrange.h \
+		../../common/src/QXlsx/header/xlsxcellreference.h \
+		../../common/src/QXlsx/header/xlsxcelllocation.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QMetaType \
+		../../common/src/QXlsx/header/xlsxworkbook.h
 	C:\Qt\6.2.4\mingw_64\bin\uic.exe Dialog.ui -o ui_Dialog.h
 
 compiler_yacc_decl_make_all:
@@ -8250,6 +8337,35 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qgenericmatrix.h \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/QVector \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/qvector.h \
+		../../common/src/QXlsx/header/xlsxdocument.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QIODevice \
+		../../common/src/QXlsx/header/xlsxglobal.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QByteArray \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QSharedPointer \
+		../../common/src/QXlsx/header/xlsxformat.h \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QColor \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
+		../../common/src/QXlsx/header/xlsxworksheet.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QPointF \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QUrl \
+		../../common/src/QXlsx/header/xlsxabstractsheet.h \
+		../../common/src/QXlsx/header/xlsxabstractooxmlfile.h \
+		../../common/src/QXlsx/header/xlsxcell.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QTime \
+		../../common/src/QXlsx/header/xlsxcellrange.h \
+		../../common/src/QXlsx/header/xlsxcellreference.h \
+		../../common/src/QXlsx/header/xlsxcelllocation.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QMetaType \
+		../../common/src/QXlsx/header/xlsxworkbook.h \
 		ui_PluginBaseElementsWidget.h \
 		../../common/src/PluginAddDialog/pluginadddialog.h \
 		C:/Qt/6.2.4/mingw_64/include/QtWidgets/QLineEdit \
@@ -8448,14 +8564,40 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qmatrix4x4.h \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qquaternion.h \
 		C:/Qt/6.2.4/mingw_64/include/QtGui/qgenericmatrix.h \
+		../../common/src/QXlsx/header/xlsxdocument.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QtGlobal \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QIODevice \
+		../../common/src/QXlsx/header/xlsxglobal.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QByteArray \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QStringList \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QSharedPointer \
+		../../common/src/QXlsx/header/xlsxformat.h \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QFont \
+		C:/Qt/6.2.4/mingw_64/include/QtGui/QColor \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
+		../../common/src/QXlsx/header/xlsxworksheet.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QPointF \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QUrl \
+		../../common/src/QXlsx/header/xlsxabstractsheet.h \
+		../../common/src/QXlsx/header/xlsxabstractooxmlfile.h \
+		../../common/src/QXlsx/header/xlsxcell.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QDate \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QTime \
+		../../common/src/QXlsx/header/xlsxcellrange.h \
+		../../common/src/QXlsx/header/xlsxcellreference.h \
+		../../common/src/QXlsx/header/xlsxcelllocation.h \
+		C:/Qt/6.2.4/mingw_64/include/QtCore/QMetaType \
+		../../common/src/QXlsx/header/xlsxworkbook.h \
 		ui_Dialog.h \
 		C:/Qt/6.2.4/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.2.4/mingw_64/include/QtWidgets/qfiledialog.h \
 		C:/Qt/6.2.4/mingw_64/include/QtCore/qdir.h \
-		C:/Qt/6.2.4/mingw_64/include/QtCore/qfileinfo.h \
-		C:/Qt/6.2.4/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.2.4/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h
+		C:/Qt/6.2.4/mingw_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ..\..\bin\Plasticity\debug\obj\Plasticity\Dialog.o Dialog.cpp
 
 ../../bin/Plasticity/debug/obj/Plasticity/qrc_resources.o: ../../bin/Plasticity/debug/rcc/Plasticity/qrc_resources.cpp 

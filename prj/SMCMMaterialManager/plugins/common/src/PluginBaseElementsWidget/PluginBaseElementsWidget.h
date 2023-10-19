@@ -8,7 +8,10 @@
 #include <QDialog>
 #include <QVector>
 #include <QMap>
-
+#include <QXlsx/header/xlsxdocument.h>
+#include <QXlsx/header/xlsxabstractsheet.h>
+#include <QXlsx/header/xlsxworksheet.h>
+#include <QXlsx/header/xlsxworkbook.h>
 
 namespace Ui {
 class PluginBaseElementsWidget;

@@ -3,6 +3,8 @@
 #include "PluginAddDialog/pluginadddialog.h"
 #include <QDebug>
 
+
+
 PluginBaseElementsWidget::PluginBaseElementsWidget(QWidget *parent) :
     QWidget(parent),
     m_autoTableValuesChanged(false),
@@ -460,8 +462,162 @@ void PluginBaseElementsWidget::loadDataFromXML(QString p_filename)
 
 void PluginBaseElementsWidget::loadDataFromXLSX(QString p_filename)
 {
+    qDebug() << "loadDataFromExcel";
+    QXlsx::Document xlsxDoc(p_filename);
+    int sheetIndexNumber = 0;
+    foreach( QString currentSheetName, xlsxDoc.sheetNames() )
+    {
+        // get current sheet
+        QXlsx::AbstractSheet* currentSheet = xlsxDoc.sheet( currentSheetName );
+        if ( NULL == currentSheet )
+            continue;
 
+        // get full cells of current sheet
+        int maxRow = -1;
+        int maxCol = -1;
+        currentSheet->workbook()->setActiveSheet( sheetIndexNumber );
+        QXlsx::Worksheet* wsheet = (QXlsx::Worksheet*) currentSheet->workbook()->activeSheet();
+        if ( NULL == wsheet )
+            continue;
+
+        QString strSheetName = wsheet->sheetName(); // sheet name
+
+        QVector<QXlsx::CellLocation> clList = wsheet->getFullCells( &maxRow, &maxCol );
+
+        QVector< QVector<QString> > cellValues;
+        for (int rc = 0; rc < maxRow; rc++)
+        {
+            QVector<QString> tempValue;
+            for (int cc = 0; cc < maxCol; cc++)
+            {
+                tempValue.push_back(QString(""));
+            }
+            cellValues.push_back(tempValue);
+        }
+        for ( int ic = 0; ic < clList.size(); ++ic )
+        {
+            QXlsx::CellLocation cl = clList.at(ic); // cell location
+
+            int row = cl.row - 1;
+            int col = cl.col - 1;
+
+            QSharedPointer<QXlsx::Cell> ptrCell = cl.cell; // cell pointer
+
+            // value of cell
+            QVariant var = cl.cell.data()->value();
+            QString str = var.toString();
+
+            cellValues[row][col] = str;
+        }
+        for (int rc = 0; rc < maxRow; rc++)
+        {
+            for (int cc = 0; cc < maxCol; cc++)
+            {
+                if (cellValues[rc][cc].contains("#"))
+                {
+
+                }
+                /// \brief Чтение скаляров
+                else if (cellValues[rc][cc].contains("[scalar]"))
+                {
+                    QString name;
+                    double value;
+                    name = cellValues[rc + 1][cc];
+                    rc++;
+                    value = cellValues[rc + 1][cc].toDouble();
+                    rc++;
+                    //text >> name;
+                    //text >> value;
+                    if (!name.isEmpty()) m_interface_dialog->m_experimental_scalars[name] = value;
+                }
+                /// \brief Чтение таблиц
+                else if (cellValues[rc][cc].contains("[table]"))
+                {
+                    int rows_count = 0;
+                    int colums_count = 0;
+                    TableExperimental table;
+                    QString name;
+                    double value;
+                    /// \brief Чтение параметров таблицы
+                    QString s = cellValues[rc + 1][cc];
+                    rc++;
+                    char delim = ' ';
+                    int pos = 0;
+                    //std::string token;
+                    pos = s.indexOf(delim);
+                    rows_count = s.first(pos).toDouble();
+                    for (int t = 0; t < pos + 1; t++){
+                    s.remove(0, 1);
+                    }
+                    pos = s.indexOf(delim);
+                    colums_count = s.first(pos).toDouble();
+                    for (int t = 0; t < pos + 1; t++){
+                    s.remove(0, 1);
+                    }
+
+                    //text >> rows_count;
+                    //text >> colums_count;
+                    /// \brief Чтение заголовков столбцов
+                    for (int j = 0; j < colums_count; j++)
+                    {
+                    if (j != colums_count - 1){
+                        pos = s.indexOf(delim);
+                        name = s.first(pos);
+                        table.names.push_back(name);
+                        qDebug() << name;
+                        for (int t = 0; t < pos + 1; t++){
+                            s.remove(0, 1);
+                        }
+                        //text >> name;
+                        qDebug() << "loadprocess13";
+                    }
+                    else{
+                        name = s;
+                        table.names.push_back(name);
+                    }
+                    }
+
+                    qDebug() << "loadprocess131";
+                    /// \brief Чтение строк таблицы
+                    for (int i = 0; i < rows_count; i++)
+                    {
+                    rc++;
+                    s = cellValues[rc][cc];
+                    QVector<double> row;
+                    /// \brief Чтение строки таблицы по столбцам
+                    for (int j = 0; j < colums_count; j++)
+                    {
+                        //text >> value;
+                        if (j != colums_count - 1){
+                        pos = s.indexOf(delim);
+                        value = s.first(pos).toDouble();
+                        for (int t = 0; t < pos + 1; t++){
+                            s.remove(0, 1);
+                        }
+                        row.push_back(value);
+                        }
+                        else{
+                        value = s.toDouble();
+                        row.push_back(value);
+                        }
+                    }
+                    table.values.push_back(row);
+                    }
+                    /// \brief Составление ключа для контейнера с таблицами
+                    m_interface_dialog->m_experimental_tables[setTableName(table.names)] = table;
+                };
+                //line = text.readLine();
+            }
+            updateScalarDataWidget();
+            updateDependencesWidget();
+        }
+    }
+
+    sheetIndexNumber++;
 }
+
+
+
 
 void PluginBaseElementsWidget::saveDataToText(QString p_filename)
 {
@@ -513,6 +669,64 @@ void PluginBaseElementsWidget::saveDataToXML(QString p_filename)
 
 void PluginBaseElementsWidget::saveDataToXLSX(QString p_filename)
 {
+    qDebug() << "saveDataToXlsx";
+    QXlsx::Document xlsxDoc(p_filename);
+//    output_file.open(QIODevice::WriteOnly|QIODevice::Text);
+//    QTextStream text(&output_file);
+    /// \brief Запись скаляров
+    int k = 1;
+    for (QMap<QString, double>::iterator it = m_interface_dialog->m_experimental_scalars.begin(); it != m_interface_dialog->m_experimental_scalars.end(); it++)
+    {
+        xlsxDoc.write(k, 1, "[scalar]");
+        k++;
+        xlsxDoc.write(k, 1, it.key());
+        k++;
+        xlsxDoc.write(k, 1, it.value());
+//        text << "[scalar]" << Qt::endl;
+//        text << it.key() << Qt::endl;
+//        text << it.value() << Qt::endl;
+//        text << Qt::endl;
+    }
+    /// \brief Запись таблиц
+    for (QMap<QString, TableExperimental >::iterator it = m_interface_dialog->m_experimental_tables.begin(); it != m_interface_dialog->m_experimental_tables.end(); it++)
+    {
+        xlsxDoc.write(k, 1, "[table]");
+        k++;
+//        text << "[table]" << Qt::endl;
+        TableExperimental &table = *it;
+        xlsxDoc.write(k, 1, table.values.size());
+        xlsxDoc.write(k, 1, table.names.size());
+        k++;
+//        text << table.values.size() << " " << table.names.size();
+        /// \brief Запись заголовков
+        int i = 1;
+        for (QVector<QString>::iterator name_it = table.names.begin(); name_it != table.names.end(); name_it++){
+            xlsxDoc.write(k, i, *name_it);
+            i++;
+        }
+        k++;
+//            text << " " << *name_it;
+//        text << Qt::endl;
+        /// \brief Запись строк
+        for (QVector<QVector<double> >::iterator row_it = table.values.begin(); row_it != table.values.end(); row_it++)
+        {
+            QVector<double> &row = *row_it;
+            i = 1;
+            /// \brief Запись строки по столбцам
+            for(QVector<double>::iterator col_it = row.begin(); col_it != row.end(); col_it++){
+                xlsxDoc.write(k, i, *col_it);
+                i++;
+            }
 
+
+//                text << (col_it == row.begin()?"":" ") << *col_it;
+            k++;
+//            text << Qt::endl;
+        }
+        k++;
+//        text << Qt::endl;
+    }
+    xlsxDoc.saveAs("my_doc.xlsx");
+//    output_file.close();
 }
 
